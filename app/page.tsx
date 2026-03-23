@@ -250,23 +250,20 @@ export default function Page() {
               <li>• The VALA foundation: Valuable, Accepted, Loved, Approved</li>
               <li>• A simple somatic reset practice to begin today</li>
             </ul>
-
             <a
               href="#"
-              className="mt-8 inline-flex rounded-full bg-[var(--vala-burgundy)] px-6 py-3 font-medium text-white transition hover:opacity-90"
+              className="mt-8 inline-flex rounded-full bg-[#5a1418] px-6 py-3 font-medium text-white transition hover:opacity-90"
             >
               Download the Guide
             </a>
           </div>
 
-          <div className="rounded-[38px] bg-[#f5e5de] p-6 shadow-sm ring-1 ring-[var(--vala-line)]">
-            <div className="rounded-[28px] bg-[var(--vala-sand)] p-7">
-              <p className="text-sm font-medium uppercase tracking-[0.14em] text-[var(--vala-mauve)]">
+          <div className="rounded-[38px] bg-[#f5e5de] p-6 shadow-sm ring-1 ring-[#e1c3b8]">
+            <div className="rounded-[28px] bg-[#efe2d6] p-7">
+              <p className="text-sm font-medium uppercase tracking-[0.14em] text-[#9a6d65]">
                 Try this 60-second practice
               </p>
-              <h3 className="mt-3 text-3xl font-semibold leading-tight">
-                Body awareness reset
-              </h3>
+              <h3 className="mt-3 text-3xl font-semibold leading-tight">Body awareness reset</h3>
               <ol className="mt-5 space-y-3 leading-8 text-[#5b4642]">
                 <li>1. Sit comfortably and close your eyes.</li>
                 <li>2. Take three slow breaths.</li>
@@ -274,47 +271,38 @@ export default function Page() {
                 <li>4. Observe the sensation without trying to change it.</li>
               </ol>
               <p className="mt-5 text-sm leading-7 text-[#735b57]">
-                The goal is awareness, not force. Regulation begins when the
-                body can finally be listened to.
+                The goal is awareness, not force. Regulation begins when the body can finally be
+                listened to.
               </p>
             </div>
           </div>
         </section>
 
-        <section
-          id="membership"
-          className="mt-10 grid gap-6 lg:grid-cols-[1fr_0.82fr]"
-        >
-          <div className="rounded-[38px] bg-[var(--vala-cream)] p-8 shadow-sm ring-1 ring-[var(--vala-line)] sm:p-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--vala-mauve)]">
-              Membership
-            </p>
-            <h3 className="mt-3 text-4xl font-semibold leading-tight">
-              VALA Somatic Membership
-            </h3>
-            <p className="mt-5 max-w-2xl leading-8 text-[var(--vala-body)]">
-              A private educational membership for women learning how to
-              reconnect with their body, soften stress responses, and embody the
-              VALA state with more calm, beauty, and confidence.
+        <section id="membership" className="mt-10 grid gap-6 lg:grid-cols-[1fr_0.82fr]">
+          <div className="rounded-[38px] bg-[#f8efea] p-8 shadow-sm ring-1 ring-[#e8d0c5] sm:p-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6d65]">Membership</p>
+            <h3 className="mt-3 text-4xl font-semibold leading-tight">VALA Somatic Membership</h3>
+            <p className="mt-5 max-w-2xl leading-8 text-[#5a4744]">
+              A private educational membership for women learning how to reconnect with their body,
+              soften stress responses, and embody the VALA state with more calm, beauty, and
+              confidence.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {includes.map((item) => (
                 <details
                   key={item.title}
-                  className="group rounded-[24px] bg-[var(--vala-sand)] p-5 shadow-sm transition open:bg-[#ead4ca]"
+                  className="group rounded-[24px] bg-[#efe2d6] p-5 shadow-sm transition open:bg-[#ead4ca]"
                 >
-                  <summary className="cursor-pointer list-none text-lg font-semibold text-[#36211f]">
+                  <summary className="cursor-pointer list-none text-lg font-semibold text-[#36211f] marker:hidden">
                     <div className="flex items-start justify-between gap-4">
                       <span>{item.title}</span>
-                      <span className="rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-[var(--vala-mauve)]">
+                      <span className="rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-[#7a4b45]">
                         Tap to explore
                       </span>
                     </div>
                   </summary>
-                  <p className="mt-4 leading-8 text-[var(--vala-body)]">
-                    {item.body}
-                  </p>
+                  <p className="mt-4 leading-8 text-[#5a4744]">{item.body}</p>
                 </details>
               ))}
             </div>
@@ -322,21 +310,20 @@ export default function Page() {
             <div className="mt-8 rounded-[26px] border border-[#d2a989] bg-[#f6ede7] p-6">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--vala-mauve)]">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6d65]">
                     Early access
                   </p>
-                  <p className="mt-2 text-lg text-[var(--vala-body)]">
-                    Join now for founding-member access, waitlist priority, and
-                    first-release content.
+                  <p className="mt-2 text-lg text-[#5a4744]">
+                    Join now for founding-member access, waitlist priority, and first-release content.
                   </p>
                 </div>
-                <div className="rounded-full bg-[var(--vala-gold)] px-5 py-2 text-base font-semibold text-white">
+                <div className="rounded-full bg-[#b88b63] px-5 py-2 text-base font-semibold text-white">
                   $39 / month
                 </div>
               </div>
               <a
                 href="#"
-                className="mt-5 inline-flex rounded-full bg-[var(--vala-navy)] px-6 py-3 font-medium text-white transition hover:opacity-90"
+                className="mt-5 inline-flex rounded-full bg-[#25154c] px-6 py-3 font-medium text-white transition hover:opacity-90"
               >
                 Join Early Access
               </a>
@@ -344,19 +331,15 @@ export default function Page() {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-[38px] bg-[var(--vala-navy)] p-8 text-white shadow-sm sm:p-10">
+            <div className="rounded-[38px] bg-[#25154c] p-8 text-white shadow-sm sm:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#cfc4ff]">
                 Brock Somatic Check-In App
               </p>
-              <h3 className="mt-3 text-4xl font-semibold leading-tight">
-                A daily bridge between stress and support
-              </h3>
+              <h3 className="mt-3 text-4xl font-semibold leading-tight">A daily bridge between stress and support</h3>
               <p className="mt-5 leading-8 text-[#efe8ff]">
-                Add the app benefit before the Valadation Method section so
-                members first see the practical daily support layer—then the
-                deeper identity transformation layer.
+                Add the app benefit before the Valadation Method section so members first see the
+                practical daily support layer—then the deeper identity transformation layer.
               </p>
-
               <div className="mt-6 rounded-[26px] bg-white/10 p-6">
                 <h4 className="text-2xl font-semibold">Inside the app</h4>
                 <ul className="mt-4 space-y-3 text-[#efe8ff]">
@@ -373,21 +356,21 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="rounded-[38px] bg-[#f5e5de] p-8 shadow-sm ring-1 ring-[var(--vala-line)] sm:p-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--vala-mauve)]">
+            <div className="rounded-[38px] bg-[#f5e5de] p-8 shadow-sm ring-1 ring-[#e1c3b8] sm:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6d65]">
                 Sneak peek
               </p>
-              <h3 className="mt-3 text-4xl font-semibold leading-tight text-[var(--vala-deep)]">
+              <h3 className="mt-3 text-4xl font-semibold leading-tight text-[#311d1b]">
                 The Valadation Method™
               </h3>
-              <p className="mt-5 leading-8 text-[var(--vala-body)]">
-                A somatic, hypnotic, and identity-based practice that teaches
-                women how to feel Valuable, Accepted, Loved, and Approved—not
-                only as affirmations, but as embodied experiences.
+              <p className="mt-5 leading-8 text-[#5a4744]">
+                A somatic, hypnotic, and identity-based practice that teaches women how to feel
+                Valuable, Accepted, Loved, and Approved—not only as affirmations, but as embodied
+                experiences.
               </p>
               <a
                 href="https://valadation-method.vercel.app/"
-                className="mt-6 inline-flex rounded-full border border-[var(--vala-mauve)] px-5 py-3 font-medium text-[var(--vala-deep)]"
+                className="mt-6 inline-flex rounded-full border border-[#7a4b45] px-5 py-3 font-medium text-[#442c29]"
               >
                 Visit Valadation Method
               </a>
