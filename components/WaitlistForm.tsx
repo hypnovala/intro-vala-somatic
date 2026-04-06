@@ -62,6 +62,15 @@ export default function WaitlistForm({
       onSubmit={handleSubmit}
       className={compact ? "mt-6 grid gap-3" : "mt-8 grid gap-4 rounded-[28px] bg-white/60 p-5 ring-1 ring-[var(--vala-line)]"}
     >
+      <div>
+        <p className="text-lg font-semibold text-[var(--vala-deep)]">
+          Get Membership Details + 40% Off
+        </p>
+        <p className="mt-1 text-sm text-[var(--vala-muted)]">
+          Enter your email below to receive full membership information and your 40% off first month coupon.
+        </p>
+      </div>
+
       <div className={compact ? "grid gap-3 sm:grid-cols-[0.85fr_1.15fr]" : "grid gap-3 sm:grid-cols-2"}>
         <input
           type="text"
