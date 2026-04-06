@@ -154,6 +154,23 @@ export default function Page() {
                   </div>
                 ))}
               </div>
+
+              <div className="mt-6 rounded-[24px] bg-white/70 p-3 ring-1 ring-[#e1c3b8]">
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#9a6d65]">
+                  Intro video
+                </p>
+                <video
+                  controls
+                  preload="none"
+                  className="w-full rounded-[18px] bg-[#eaded7]"
+                >
+                  <source src="/videos/vala-intro.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <p className="mt-3 text-xs text-[#735b57]">
+                  MP4 holder: replace <span className="font-medium">/videos/vala-intro.mp4</span> with your video file.
+                </p>
+              </div>
             </div>
           </aside>
         </section>
@@ -243,8 +260,18 @@ export default function Page() {
               <li>• The VALA foundation: Valuable, Accepted, Loved, Approved</li>
               <li>• A simple somatic reset practice to begin today</li>
             </ul>
-            <div className="mt-8">
-              <WaitlistForm buttonLabel="Get the Free Guide" compact source="guide" />
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <a
+                href="https://valabody.com/free-reset-guide"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex rounded-full bg-[var(--vala-burgundy)] px-6 py-3 font-medium text-white transition hover:opacity-90"
+              >
+                Get the Free Guide
+              </a>
+              <p className="text-sm text-[var(--vala-muted)]">
+                Instant access. No email required.
+              </p>
             </div>
           </div>
 
@@ -263,6 +290,88 @@ export default function Page() {
               <p className="mt-5 text-sm leading-7 text-[#735b57]">
                 The goal is awareness, not force. Regulation begins when the body can finally be listened to.
               </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="pricing" className="mt-12 rounded-[38px] bg-[#f8efea] p-8 shadow-sm ring-1 ring-[#e8d0c5] sm:p-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6d65]">
+            Membership options
+          </p>
+          <h3 className="mt-3 text-4xl font-semibold leading-tight">Choose your way into VALA</h3>
+          <p className="mt-4 max-w-3xl leading-8 text-[#5a4744]">
+            This is not just content. These are tools your body can use the same day you feel overwhelmed.
+          </p>
+
+          <div className="mt-8 grid gap-5 xl:grid-cols-3">
+            <div className="rounded-[28px] border border-[#e1c3b8] bg-white p-7 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6d65]">Start here</p>
+              <h4 className="mt-3 text-2xl font-semibold text-[#311d1b]">$7 Intro Offer</h4>
+              <p className="mt-3 leading-7 text-[#5a4744]">
+                A light entry point for women who want to experience the tone and foundation of VALA before stepping into the full membership.
+              </p>
+              <ul className="mt-5 space-y-3 text-[#5a4744]">
+                <li>• Introductory somatic reset content</li>
+                <li>• Gentle educational entry into VALA</li>
+                <li>• Soft low-risk first step</li>
+              </ul>
+              <div className="mt-5 rounded-[22px] bg-[#f8efea] p-4">
+                <p className="text-sm font-semibold text-[#442c29]">Not included</p>
+                <ul className="mt-3 space-y-2 text-sm text-[#735b57]">
+                  {introOfferExclusions.map((item) => (
+                    <li key={item}>• {item}</li>
+                  ))}
+                </ul>
+              </div>
+              <a
+                href="#final-waitlist"
+                className="mt-6 inline-flex rounded-full bg-[var(--vala-burgundy)] px-5 py-3 font-medium text-white transition hover:opacity-90"
+              >
+                Join Intro Waitlist
+              </a>
+            </div>
+
+            <div className="rounded-[28px] border border-[#d9b7ab] bg-[#f5e5de] p-7 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6d65]">Core membership</p>
+              <h4 className="mt-3 text-2xl font-semibold text-[#311d1b]">$39 / month</h4>
+              <p className="mt-3 leading-7 text-[#5a4744]">
+                The main VALA membership for women who want recurring support, guided practices, and a deeper rhythm of somatic reconnection.
+              </p>
+              <ul className="mt-5 space-y-3 text-[#5a4744]">
+                <li>• Guided nervous system reset practices</li>
+                <li>• Somatic body awareness exercises</li>
+                <li>• Monthly reset audio or video</li>
+                <li>• Private community + early access</li>
+                <li>• Brock Somatic Check-In App</li>
+              </ul>
+              <a
+                href="#final-waitlist"
+                className="mt-6 inline-flex rounded-full bg-[var(--vala-navy)] px-5 py-3 font-medium text-white transition hover:opacity-90"
+              >
+                Join Founding Waitlist
+              </a>
+            </div>
+
+            <div className="rounded-[28px] border border-[#d2a989] bg-[#25154c] p-7 text-white shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#cfc4ff]">Premium access</p>
+              <h4 className="mt-3 text-2xl font-semibold">Private with Brock</h4>
+              <p className="mt-3 leading-7 text-[#efe8ff]">
+                A premium layer for women who want direct support, a monthly 1:1 call, and access to private Houston bodywork services.
+              </p>
+              <ul className="mt-5 space-y-3 text-[#efe8ff]">
+                {premiumFeatures.map((item) => (
+                  <li key={item}>• {item}</li>
+                ))}
+              </ul>
+              <div className="mt-5 rounded-[22px] bg-white/10 p-4 text-sm text-[#efe8ff]">
+                Limited availability. Premium support is intentionally kept small.
+              </div>
+              <a
+                href="#final-waitlist"
+                className="mt-6 inline-flex rounded-full bg-white px-5 py-3 font-medium text-[var(--vala-navy)] transition hover:opacity-90"
+              >
+                Request Premium Access
+              </a>
             </div>
           </div>
         </section>
