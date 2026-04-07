@@ -31,6 +31,11 @@ const membershipBenefits = [
     body:
       "A private-entry space for women who want ongoing support, future program updates, and priority access to deeper VALA experiences.",
   },
+  {
+    title: "Brock Check In App",
+    body:
+      "Tap to explore a guided check-in experience designed to support daily nervous system awareness and post-shift decompression.",
+  },
 ];
 
 const whoItsFor = [
