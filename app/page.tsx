@@ -164,11 +164,17 @@ export default function Page() {
                   preload="none"
                   className="w-full rounded-[18px] bg-[#eaded7]"
                 >
-                  <source src="/video/placeholder.mp4" type="video/mp4" />
+                  <source
+                    src="https://hypnoticdreamtv.com/wp-content/uploads/2026/04/VALA_Intro0406_01.mp4"
+                    type="video/mp4"
+                  />
                   Your browser does not support the video tag.
                 </video>
                 <p className="mt-3 text-xs text-[#735b57]">
-                  Video placeholder: upload your file to <span className="font-medium">/public/video/</span> (for example <span className="font-medium">placeholder.mp4</span>) and it will load from <span className="font-medium">/video/placeholder.mp4</span>.
+                  Video source:{" "}
+                  <span className="font-medium">
+                    https://hypnoticdreamtv.com/wp-content/uploads/2026/04/VALA_Intro0406_01.mp4
+                  </span>
                 </p>
               </div>
             </div>
