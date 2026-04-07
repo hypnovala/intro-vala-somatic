@@ -31,6 +31,11 @@ const membershipBenefits = [
     body:
       "A private-entry space for women who want ongoing support, future program updates, and priority access to deeper VALA experiences.",
   },
+  {
+    title: "Brock Check In App",
+    body:
+      "Tap to explore a guided check-in experience designed to support daily nervous system awareness and post-shift decompression.",
+  },
 ];
 
 const whoItsFor = [
@@ -67,13 +72,6 @@ const introOfferExclusions = [
   "No monthly 1:1 call",
   "No Brock Somatic Check-In App",
   "No private Houston hybrid service",
-];
-
-const appFeatures = [
-  "Quick nervous system check-ins",
-  "Simple supportive prompts",
-  "Somatic reset suggestions",
-  "A grounded bridge between stress and calm",
 ];
 
 const premiumFeatures = [
@@ -416,19 +414,12 @@ export default function Page() {
               <p className="mt-5 leading-8 text-[#efe8ff]">
                 The app gives core members a practical daily support layer before moving into the deeper identity work and premium support pathways.
               </p>
-              <div className="mt-6 rounded-[26px] bg-white/10 p-6">
-                <h4 className="text-2xl font-semibold">Inside the app</h4>
-                <ul className="mt-4 space-y-3 text-[#efe8ff]">
-                  {appFeatures.map((item) => (
-                    <li key={item}>• {item}</li>
-                  ))}
-                </ul>
-                <a
-                  href="https://somatic-nurse-app.vercel.app/"
-                  className="mt-6 inline-flex rounded-full bg-white px-5 py-3 font-medium text-[var(--vala-navy)]"
-                >
-                  Explore App Benefit
-                </a>
+              <div className="mt-6 rounded-[26px] border border-dashed border-white/40 bg-[#46376d] p-6 text-center text-[#e8e0ff] sm:p-7">
+                <img
+                  src="/app-screenshot.png"
+                  alt="Brock Somatic Check-In app screenshot"
+                  className="mx-auto w-full max-w-[520px] rounded-[18px]"
+                />
               </div>
             </div>
 
