@@ -159,14 +159,22 @@ export default function Page() {
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#9a6d65]">
                   Intro video
                 </p>
-                <div className="flex aspect-video w-full items-center justify-center rounded-[18px] border border-dashed border-[#cfaea3] bg-[#eaded7] px-4 text-center text-sm text-[#735b57]">
-                  Embedded video placeholder
-                  <br />
-                  Add an iframe embed URL (YouTube, Vimeo, etc.) here.
-                </div>
+                <video
+                  controls
+                  preload="none"
+                  className="w-full rounded-[18px] bg-[#eaded7]"
+                >
+                  <source
+                    src="https://hypnoticdreamtv.com/wp-content/uploads/2026/04/VALA_Intro0406_01.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
                 <p className="mt-3 text-xs text-[#735b57]">
-                  Video placeholder: replace this box with your embed snippet (for example an{" "}
-                  <span className="font-medium">&lt;iframe /&gt;</span> from YouTube or Vimeo).
+                  Video source:{" "}
+                  <span className="font-medium">
+                    https://hypnoticdreamtv.com/wp-content/uploads/2026/04/VALA_Intro0406_01.mp4
+                  </span>
                 </p>
               </div>
             </div>
