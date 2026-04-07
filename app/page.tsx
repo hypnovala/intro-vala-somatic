@@ -69,13 +69,6 @@ const introOfferExclusions = [
   "No private Houston hybrid service",
 ];
 
-const appFeatures = [
-  "Quick nervous system check-ins",
-  "Simple supportive prompts",
-  "Somatic reset suggestions",
-  "A grounded bridge between stress and calm",
-];
-
 const premiumFeatures = [
   "Monthly private 1:1 call with Brock",
   "Priority access to private Houston bodywork services",
@@ -416,16 +409,10 @@ export default function Page() {
               <p className="mt-5 leading-8 text-[#efe8ff]">
                 The app gives core members a practical daily support layer before moving into the deeper identity work and premium support pathways.
               </p>
-              <div className="mt-6 rounded-[26px] bg-[#46376d] p-6 sm:p-7">
-                <h4 className="text-[2rem] font-semibold leading-tight text-white">Inside the app</h4>
-                <ul className="mt-4 space-y-3 text-[1.08rem] text-[#f3edff]">
-                  {appFeatures.map((item) => (
-                    <li key={item}>• {item}</li>
-                  ))}
-                </ul>
-                <span className="mt-6 inline-flex rounded-full bg-white px-6 py-3 text-[1.05rem] font-medium text-[var(--vala-navy)]">
-                  Explore App Benefit
-                </span>
+              <div className="mt-6 rounded-[26px] border border-dashed border-white/40 bg-[#46376d] p-6 sm:p-7">
+                <div className="flex min-h-[260px] items-center justify-center rounded-[20px] bg-[#3d2f62] text-center text-[#e8e0ff]">
+                  <p className="px-6 text-lg">Image placeholder — upload your app screenshot to replace this block.</p>
+                </div>
               </div>
             </div>
 
