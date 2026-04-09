@@ -75,7 +75,7 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           message:
-            "Waitlist is not configured. Set WAITLIST_WEBHOOK_URL or WAITLIST_GMAIL_TO in Vercel.",
+            "Waitlist is not configured. Please contact support.",
         },
         { status: 503 },
       );
