@@ -95,12 +95,13 @@ export async function POST(request: Request) {
     const gmailRecipient = process.env.WAITLIST_GMAIL_TO;
 
     if (!webhookUrl && !gmailRecipient) {
+      console.warn("Waitlist endpoint called without delivery configuration");
+
       return NextResponse.json(
         {
-          message:
-            "Waitlist is not configured. Please contact support.",
+          message: "Waitlist is not configured. Please contact support.",
         },
-        { status: 503 },
+        { status: 202 },
       );
     }
 
