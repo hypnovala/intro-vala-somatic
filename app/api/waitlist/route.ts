@@ -97,7 +97,8 @@ export async function POST(request: Request) {
     if (!webhookUrl && !gmailRecipient) {
       return NextResponse.json(
         {
-          message: WAITLIST_NOT_CONFIGURED_MESSAGE,
+          message:
+            "Waitlist is not configured. Please contact support.",
         },
         { status: 503 },
       );
