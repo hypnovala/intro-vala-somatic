@@ -8,6 +8,7 @@ type WaitlistPayload = {
   brand: string;
 };
 
+
 async function sendToWebhook(webhookUrl: string, payload: WaitlistPayload) {
   return fetch(webhookUrl, {
     method: "POST",
