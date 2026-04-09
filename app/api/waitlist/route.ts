@@ -8,6 +8,9 @@ type WaitlistPayload = {
   brand: string;
 };
 
+const WAITLIST_NOT_CONFIGURED_MESSAGE =
+  "Waitlist is not configured. Set WAITLIST_WEBHOOK_URL or WAITLIST_GMAIL_TO in Vercel.";
+
 async function sendToWebhook(webhookUrl: string, payload: WaitlistPayload) {
   return fetch(webhookUrl, {
     method: "POST",
@@ -74,8 +77,7 @@ export async function POST(request: Request) {
     if (!webhookUrl && !gmailRecipient) {
       return NextResponse.json(
         {
-          message:
-            "Waitlist is not configured. Set WAITLIST_WEBHOOK_URL or WAITLIST_GMAIL_TO in Vercel.",
+          message: WAITLIST_NOT_CONFIGURED_MESSAGE,
         },
         { status: 503 },
       );
