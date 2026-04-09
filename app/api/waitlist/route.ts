@@ -109,6 +109,13 @@ export async function POST(request: Request) {
       : await sendToGmailAddress(gmailRecipient as string, payload);
 
     if (!upstreamResponse.ok) {
+      const upstreamBody = await upstreamResponse.text();
+      console.error("Waitlist upstream request failed", {
+        status: upstreamResponse.status,
+        statusText: upstreamResponse.statusText,
+        bodyPreview: upstreamBody.slice(0, 500),
+      });
+
       return NextResponse.json(
         {
           message:
@@ -122,7 +129,9 @@ export async function POST(request: Request) {
       message:
         "Success! Check your inbox for membership details and your limited-time offer.",
     });
-  } catch {
+  } catch (error) {
+    console.error("Waitlist handler crashed", error);
+
     return NextResponse.json(
       { message: "Unable to submit right now. Please try again shortly." },
       { status: 500 },
