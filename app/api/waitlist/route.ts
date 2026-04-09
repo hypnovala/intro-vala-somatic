@@ -18,8 +18,6 @@ type WaitlistInput = {
   membershipInterest?: string;
 };
 
-const WAITLIST_NOT_CONFIGURED_MESSAGE =
-  "Waitlist is not configured. Set WAITLIST_WEBHOOK_URL or WAITLIST_GMAIL_TO in Vercel.";
 
 async function sendToWebhook(webhookUrl: string, payload: WaitlistPayload) {
   return fetch(webhookUrl, {
