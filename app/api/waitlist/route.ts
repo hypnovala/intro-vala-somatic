@@ -18,25 +18,11 @@ type WaitlistInput = {
   membershipInterest?: string;
 };
 
-function normalizePayload(input: WaitlistInput): WaitlistPayload | null {
-  const email = input.email?.trim().toLowerCase();
+const WAITLIST_NOT_CONFIGURED_MESSAGE =
+  "Waitlist is not configured. Set WAITLIST_WEBHOOK_URL or WAITLIST_GMAIL_TO in Vercel.";
 
-  if (!email || !email.includes("@")) {
-    return null;
-  }
-
-  return {
-    email,
-    firstName: input.firstName?.trim() || "",
-    source: input.source?.trim() || "site",
-    membershipInterest: input.membershipInterest === "$39" ? "$39" : "$7",
-    brand: "VALA Somatic Membership",
-    submittedAt: new Date().toISOString(),
-  };
-}
-
-async function postJson(url: string, payload: WaitlistPayload, headers?: HeadersInit) {
-  return fetch(url, {
+async function sendToWebhook(webhookUrl: string, payload: WaitlistPayload) {
+  return fetch(webhookUrl, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -76,8 +62,7 @@ export async function POST(request: Request) {
     if (!webhookUrl && !gmailRecipient) {
       return NextResponse.json(
         {
-          message:
-            "Waitlist is not configured. Set WAITLIST_WEBHOOK_URL or WAITLIST_GMAIL_TO in Vercel.",
+          message: WAITLIST_NOT_CONFIGURED_MESSAGE,
         },
         { status: 503 },
       );
