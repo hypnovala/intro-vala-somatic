@@ -31,7 +31,7 @@ const buildConfirmationHtml = (firstName: string) => `
   <div style="font-family: Georgia, 'Times New Roman', serif; background: #f8efea; color: #311d1b; padding: 32px;">
     <div style="max-width: 640px; margin: 0 auto; background: #fffaf7; border: 1px solid #ead0c6; border-radius: 24px; padding: 40px;">
       <p style="margin: 0 0 16px; letter-spacing: 0.18em; text-transform: uppercase; font-size: 12px; color: #9a6d65;">
-        VALA Nightworker
+        VALA Somatic Course
       </p>
       <h1 style="margin: 0 0 20px; font-size: 40px; line-height: 1.1; font-weight: 500;">
         Your shift ended... but your body didn't.
