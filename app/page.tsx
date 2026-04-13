@@ -251,7 +251,7 @@ export default function Page() {
           <div className="rounded-[38px] border border-[var(--vala-line)] bg-[#f8ece7] p-5 shadow-sm">
             <div className="rounded-[30px] bg-white/60 p-4">
               <div className="rounded-[26px] border border-dashed border-[#ddb7ae] bg-[#ecd2ca] p-6">
-                <p className="text-xs uppercase tracking-[0.2em] text-[#b07e76]">Dreanna -VALA Narrator</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-[#b07e76]">VALA Narrator</p>
                 {hasSlideCover ? (
                   <div className="relative mt-4 overflow-hidden rounded-[22px] bg-[#dbc3ba]">
                     <img
@@ -260,7 +260,7 @@ export default function Page() {
                       className="h-[430px] w-full object-cover"
                     />
                     <div className="absolute bottom-4 left-4 rounded-full bg-[#543733] px-4 py-2 text-xs uppercase tracking-[0.22em] text-white">
-                      Slide 01 - Cover
+                      Dreanna
                     </div>
                   </div>
                 ) : (
