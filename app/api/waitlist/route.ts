@@ -31,25 +31,33 @@ const buildConfirmationHtml = (firstName: string) => `
   <div style="font-family: Georgia, 'Times New Roman', serif; background: #f8efea; color: #311d1b; padding: 32px;">
     <div style="max-width: 640px; margin: 0 auto; background: #fffaf7; border: 1px solid #ead0c6; border-radius: 24px; padding: 40px;">
       <p style="margin: 0 0 16px; letter-spacing: 0.18em; text-transform: uppercase; font-size: 12px; color: #9a6d65;">
-        VALA Somatic Course
+        Official Invitation
       </p>
       <h1 style="margin: 0 0 20px; font-size: 40px; line-height: 1.1; font-weight: 500;">
-        Your shift ended... but your body didn't.
+        You're officially invited.
       </h1>
       <p style="margin: 0 0 18px; font-size: 18px; line-height: 1.8; color: #5a4744;">
-        You're officially on the early access waitlist for VALA Nightworker, the 35-minute somatic reset designed for women who stay “on” long after work ends.
+        ${firstName.trim()}, you’re invited to the Free VALA Somatic Course (Nightworker Edition), a luxury, feminine 35-minute somatic reset for women who stay “on” long after work ends.
       </p>
       <p style="margin: 0 0 18px; font-size: 18px; line-height: 1.8; color: #5a4744;">
-        You'll be first to hear when early access opens.
+        Your shift ended… but your body didn’t. This guided experience helps your nervous system return to calm through intentional post-shift decompression.
       </p>
       <p style="margin: 0 0 28px; font-size: 18px; line-height: 1.8; color: #5a4744;">
-        Until then, exhale. Your body is allowed to soften.
+        Exhale. Soften. Let your body come home to itself.
+      </p>
+      <p style="margin: 0 0 28px;">
+        <a
+          href="https://intro-vala-somatic-git-codex-nightworker-pr-hypnovalas-projects.vercel.app/"
+          style="display: inline-block; background: #543733; color: #fffaf7; text-decoration: none; padding: 12px 24px; border-radius: 9999px; letter-spacing: 0.08em; text-transform: uppercase; font-size: 12px;"
+        >
+          Begin Your Reset
+        </a>
       </p>
       <p style="margin: 0; font-size: 16px; line-height: 1.8; color: #7a6661;">
         ${firstName.trim()},
       </p>
       <p style="margin: 4px 0 0; font-size: 16px; line-height: 1.8; color: #7a6661;">
-        VALA Nightworker
+        Brock VALA
       </p>
     </div>
   </div>
@@ -57,16 +65,18 @@ const buildConfirmationHtml = (firstName: string) => `
 
 const buildConfirmationText = (firstName: string) =>
   [
-    "Your shift ended... but your body didn't.",
+    "You're officially invited.",
     "",
-    `You're officially on the early access waitlist for VALA Nightworker, ${firstName.trim()}.`,
-    "The 35-minute somatic reset is designed for women who stay “on” long after work ends.",
+    `${firstName.trim()}, you’re invited to the Free VALA Somatic Course (Nightworker Edition).`,
+    "Your shift ended… but your body didn’t.",
+    "This 35-minute somatic reset is designed for women who stay “on” long after work ends and supports your body in returning to calm.",
     "",
-    "You'll be first to hear when early access opens.",
+    "Begin Your Reset:",
+    "https://intro-vala-somatic-git-codex-nightworker-pr-hypnovalas-projects.vercel.app/",
     "",
-    "Until then, exhale. Your body is allowed to soften.",
+    "Exhale. Soften. Let your body come home to itself.",
     "",
-    "VALA Nightworker",
+    "Brock VALA",
   ].join("\n");
 
 export async function GET() {
@@ -108,18 +118,18 @@ export async function POST(req: Request) {
 
     const resend = new Resend(resendApiKey);
 
-    // Confirmation email is part of the user-facing flow, so we fail loudly if it cannot be sent.
+    // Invitation email is part of the user-facing flow, so we fail loudly if it cannot be sent.
     const confirmationResult = await resend.emails.send({
       from: resendFromEmail,
       to: email,
-      subject: "You're on the waitlist — VALA Nightworker",
+      subject: "You're officially invited — VALA Somatic Course",
       html: buildConfirmationHtml(firstName),
       text: buildConfirmationText(firstName),
     });
 
     if (confirmationResult.error) {
-      console.error("Failed to send waitlist confirmation email.", confirmationResult.error);
-      return NextResponse.json({ message: "Unable to send confirmation email." }, { status: 500 });
+      console.error("Failed to send waitlist invitation email.", confirmationResult.error);
+      return NextResponse.json({ message: "Unable to send invitation email." }, { status: 500 });
     }
 
     // Internal notifications are helpful, but they should not block a successful user signup.
