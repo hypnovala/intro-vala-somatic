@@ -274,7 +274,7 @@ export default function Page() {
               </div>
 
               <div className="mt-4 rounded-[22px] border border-dashed border-[#ddb7ae] bg-[#f1d5ce] p-6">
-                <p className="text-xs uppercase tracking-[0.2em] text-[#b07e76]">Audio holder</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-[#b07e76]">Module 01 Preview</p>
                 {hasAudioSample ? (
                   <div className="mt-4 rounded-[18px] bg-white/55 px-5 py-4">
                     <p className="text-xs uppercase tracking-[0.24em] text-[#8f6962]">mod01_sample.mp3</p>
