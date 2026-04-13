@@ -63,27 +63,27 @@ export default function Page() {
     <main className="min-h-screen bg-[var(--vala-sand)] text-[var(--vala-ink)]">
       <div className="mx-auto max-w-7xl px-6 py-8 sm:px-8 lg:px-10">
         <header className="rounded-[36px] border border-[var(--vala-line)] bg-[var(--vala-cream)] p-3 text-center text-sm tracking-wide text-[var(--vala-mauve)] shadow-sm">
-          VALA Nightworker 35-Minute Somatic Reset Course • Luxury post-shift nervous system support
+          Free VALA Nightworker 35-Minute Somatic Reset • Early signup access for women
         </header>
 
         <section className="grid gap-8 py-10 lg:grid-cols-[1.2fr_0.85fr] lg:items-start">
           <div className="rounded-[40px] bg-[var(--vala-cream)] p-8 shadow-sm ring-1 ring-[var(--vala-line)] sm:p-10">
             <span className="mb-5 inline-flex rounded-full bg-[var(--vala-soft)] px-4 py-2 text-sm font-medium text-[var(--vala-mauve)]">
-              Waitlist-only launch
+              Free early-access course
             </span>
 
             <h1 className="max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
-              Join the waitlist for the VALA Nightworker 35-Minute Somatic Reset Course.
+              Sign up early for the free VALA Nightworker 35-Minute Somatic Reset Course.
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--vala-body)]">
-              A luxury somatic landing space for nightlife women who want to come down gently after shift,
-              regulate the nervous system, and return home to themselves before sleep.
+              A free luxury somatic experience for nightlife women who want to come down gently after
+              shift, regulate the nervous system, and return home to themselves before sleep.
             </p>
 
             <p className="mt-6 max-w-2xl text-base leading-7 text-[var(--vala-body)]">
-              This is a waitlist-only page for early access, launch updates, and first notice when the
-              course opens.
+              Women who sign up early will get first access, launch updates, and the first invitation
+              when the course opens.
             </p>
 
             <WaitlistForm buttonLabel="Join the Waitlist" source="hero" />
@@ -212,13 +212,13 @@ export default function Page() {
               VALA Somatic Reset - Nightworker Edition
             </p>
             <h3 className="mt-6 max-w-4xl text-4xl font-semibold leading-tight text-[var(--vala-deep)] sm:text-5xl lg:text-6xl">
-              A nervous system reset for women who stay{" "}
+              A free nervous system reset for women who stay{" "}
               <span className="italic text-[var(--vala-burgundy)]">"on"</span> for work
             </h3>
             <p className="mt-6 max-w-3xl text-lg leading-9 text-[var(--vala-body)]">
               If your job requires you to be seen, social, and on, this reset is for you. A
-              35-minute luxury somatic experience for nightlife professionals, entertainers, and
-              high-stimulation women.
+              free 35-minute luxury somatic experience for nightlife professionals, entertainers,
+              and women who sign up early.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -367,11 +367,11 @@ export default function Page() {
             Waitlist invitation
           </p>
           <h3 className="mx-auto mt-4 max-w-4xl text-4xl font-semibold leading-tight sm:text-5xl">
-            Enter your name and email to be first in line when the VALA Nightworker reset opens.
+            Enter your name and email to claim early access to the free 35-minute VALA Nightworker reset.
           </h3>
           <p className="mx-auto mt-6 max-w-3xl leading-8 text-[var(--vala-body)]">
-            This page is now focused entirely on the waitlist so you can track the launch without sorting
-            through pricing tiers or membership options.
+            This page is focused entirely on early signup so women on the waitlist hear first when the
+            free course is released.
           </p>
           <div className="mx-auto mt-8 max-w-3xl text-left">
             <WaitlistForm buttonLabel="Join the Waitlist" source="final-cta" />

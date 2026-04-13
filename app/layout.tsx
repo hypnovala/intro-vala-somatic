@@ -3,9 +3,9 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "VALA Nightworker 35-Minute Somatic Reset Course",
+  title: "Free VALA Nightworker 35-Minute Somatic Reset Course",
   description:
-    "A luxury waitlist landing page for nightlife women seeking a post-shift nervous system reset.",
+    "A free 35-minute somatic reset course for nightlife women who sign up early.",
 };
 
 export default function RootLayout({
