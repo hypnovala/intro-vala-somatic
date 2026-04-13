@@ -251,7 +251,7 @@ export default function Page() {
           <div className="rounded-[38px] border border-[var(--vala-line)] bg-[#f8ece7] p-5 shadow-sm">
             <div className="rounded-[30px] bg-white/60 p-4">
               <div className="rounded-[26px] border border-dashed border-[#ddb7ae] bg-[#ecd2ca] p-6">
-                <p className="text-xs uppercase tracking-[0.2em] text-[#b07e76]">Image holder</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-[#b07e76]">Dreanna -VALA Narrator</p>
                 {hasSlideCover ? (
                   <div className="relative mt-4 overflow-hidden rounded-[22px] bg-[#dbc3ba]">
                     <img
