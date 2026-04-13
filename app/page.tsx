@@ -258,7 +258,7 @@ export default function Page() {
                       preload="metadata"
                       className="aspect-[3/4] w-full object-cover"
                     >
-                      <source src="/dreanna-vala-narrator.mp4" type="video/mp4" />
+                      <source src="/dreanna_vala_narrator.mp4" type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                     <div className="absolute bottom-4 left-4 rounded-full bg-[#543733] px-4 py-2 text-xs uppercase tracking-[0.22em] text-white">
