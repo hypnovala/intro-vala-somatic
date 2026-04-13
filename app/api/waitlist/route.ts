@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-type MembershipInterest = "$7" | "$39";
-
 type WaitlistPayload = {
   firstName: string;
   email: string;
@@ -82,7 +80,7 @@ export async function POST(req: Request) {
     const teamNotificationResult = (await transporter.sendMail({
       from: gmailUser,
       to: gmailUser,
-      subject: "New Waitlist Signup",
+      subject: "New VALA Nightworker Waitlist Signup",
       text: [
         "New waitlist signup received:",
         `First name: ${firstName}`,
@@ -99,8 +97,11 @@ export async function POST(req: Request) {
     const confirmationResult = (await transporter.sendMail({
       from: gmailUser,
       to: email,
-      subject: "You’re on the waitlist — Somatic Nurse",
-      html: `<p>You're officially in, ${firstName}.</p>`,
+      subject: "You’re on the waitlist — VALA Nightworker Reset",
+      html: `
+        <p>You’re officially on the waitlist, ${firstName}.</p>
+        <p>We’ll reach out when the VALA Nightworker 35-Minute Somatic Reset Course is ready.</p>
+      `,
     })) as SendMailResult;
 
     if (!wasAccepted(confirmationResult, email)) {
@@ -110,7 +111,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({
       success: true,
-      message: "Thank you — check your email for details.",
+      message: "You’re on the waitlist. Check your email for confirmation.",
     });
   } catch (error) {
     console.error("Waitlist API error:", error);

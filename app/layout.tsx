@@ -3,9 +3,9 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "VALA Somatic Membership",
+  title: "VALA Nightworker 35-Minute Somatic Reset Course",
   description:
-    "Luxury nervous system support for women ready to feel calm, confident, and VALA.",
+    "A luxury waitlist landing page for nightlife women seeking a post-shift nervous system reset.",
 };
 
 export default function RootLayout({

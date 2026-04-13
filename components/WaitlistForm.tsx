@@ -15,7 +15,6 @@ export default function WaitlistForm({
 }: WaitlistFormProps) {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
-  const [membershipInterest, setMembershipInterest] = useState<"$7" | "$39">("$7");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
 
@@ -34,7 +33,6 @@ export default function WaitlistForm({
           email,
           firstName,
           source,
-          membershipInterest,
           inHouston: false,
         }),
       });
@@ -49,7 +47,6 @@ export default function WaitlistForm({
       setMessage(data.message || "You’re on the waitlist.");
       setEmail("");
       setFirstName("");
-      setMembershipInterest("$7");
     } catch (error) {
       const nextMessage =
         error instanceof Error
@@ -68,10 +65,10 @@ export default function WaitlistForm({
     >
       <div>
         <p className="text-lg font-semibold text-[var(--vala-deep)]">
-          Get Membership Details + 40% Off (Limited Offer)
+          Join the course waitlist
         </p>
         <p className="mt-1 text-sm text-[var(--vala-muted)]">
-          Enter your email below to receive full membership information and your limited-time 40% off first month coupon.
+          Enter your name and email to receive launch updates for the VALA Nightworker 35-Minute Somatic Reset Course.
         </p>
       </div>
 
@@ -95,22 +92,6 @@ export default function WaitlistForm({
         />
       </div>
 
-      <div>
-        <label className="mb-2 block text-sm font-medium text-[var(--vala-deep)]" htmlFor="membershipInterest">
-          Membership option
-        </label>
-        <select
-          id="membershipInterest"
-          name="membershipInterest"
-          value={membershipInterest}
-          onChange={(event) => setMembershipInterest(event.target.value as "$7" | "$39")}
-          className="w-full rounded-full border border-[var(--vala-line)] bg-white px-5 py-3 text-[var(--vala-deep)] outline-none transition focus:border-[var(--vala-gold)]"
-        >
-          <option value="$7">$7 Waitlist Sign Up</option>
-          <option value="$39">$39 Membership</option>
-        </select>
-      </div>
-
       <div className={compact ? "flex flex-col gap-3 sm:flex-row sm:items-center" : "flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between"}>
         <button
           type="submit"
@@ -120,7 +101,7 @@ export default function WaitlistForm({
           {status === "loading" ? "Submitting..." : buttonLabel}
         </button>
         <p className="text-sm text-[var(--vala-muted)]">
-          Join the waitlist for launch updates, founding-member access, and the free Somatic Reset Guide.
+          Waitlist only. We’ll email you when the course opens.
         </p>
       </div>
 
