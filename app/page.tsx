@@ -44,6 +44,13 @@ const resetSteps = [
   "Close the night with a repeatable ritual your body can trust.",
 ];
 
+const previewTags = [
+  "Bottle girls & cocktail servers",
+  "Entertainers & performers",
+  "Club hosts & nightlife staff",
+  "Creators & models",
+];
+
 export default function Page() {
   return (
     <main className="min-h-screen bg-[var(--vala-sand)] text-[var(--vala-ink)]">
@@ -189,6 +196,75 @@ export default function Page() {
                 {item}
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="mt-8 grid gap-6 lg:grid-cols-[1.25fr_0.95fr]">
+          <div className="rounded-[38px] border border-[var(--vala-line)] bg-[var(--vala-cream)] p-8 shadow-sm sm:p-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--vala-mauve)]">
+              VALA Somatic Reset - Nightworker Edition
+            </p>
+            <h3 className="mt-6 max-w-4xl text-4xl font-semibold leading-tight text-[var(--vala-deep)] sm:text-5xl lg:text-6xl">
+              A nervous system reset for women who stay{" "}
+              <span className="italic text-[var(--vala-burgundy)]">"on"</span> for work
+            </h3>
+            <p className="mt-6 max-w-3xl text-lg leading-9 text-[var(--vala-body)]">
+              If your job requires you to be seen, social, and on, this reset is for you. A
+              35-minute luxury somatic experience for nightlife professionals, entertainers, and
+              high-stimulation women.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              {previewTags.map((tag) => (
+                <div
+                  key={tag}
+                  className="rounded-full border border-[#dfb8af] bg-[#f2d8d1] px-4 py-3 text-sm text-[#7a544e]"
+                >
+                  {tag}
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="#final-waitlist"
+                className="inline-flex rounded-full bg-[#9f3127] px-7 py-4 font-medium text-white transition hover:opacity-90"
+              >
+                Join course waitlist
+              </a>
+              <a
+                href="#course"
+                className="inline-flex rounded-full border border-[#b65f50] px-7 py-4 font-medium text-[#8b3429] transition hover:bg-[#f6e7e1]"
+              >
+                Preview course flow
+              </a>
+            </div>
+          </div>
+
+          <div className="rounded-[38px] border border-[var(--vala-line)] bg-[#f8ece7] p-5 shadow-sm">
+            <div className="rounded-[30px] bg-white/60 p-4">
+              <div className="relative overflow-hidden rounded-[26px] bg-[#dbc3ba]">
+                <img
+                  src="/nightworker-course-preview.png"
+                  alt="VALA Nightworker course preview reference"
+                  className="h-[430px] w-full object-cover"
+                />
+                <div className="absolute bottom-4 left-4 rounded-full bg-[#543733] px-4 py-2 text-xs uppercase tracking-[0.22em] text-white">
+                  Slide 01 - Cover
+                </div>
+              </div>
+
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                <div className="rounded-[22px] border border-dashed border-[#ddb7ae] bg-[#f1d5ce] p-6 text-center">
+                  <p className="text-xs uppercase tracking-[0.2em] text-[#b07e76]">Holder 02</p>
+                  <p className="mt-3 text-sm text-[#7d5b55]">Brock thumbnail</p>
+                </div>
+                <div className="rounded-[22px] border border-dashed border-[#ddb7ae] bg-[#f1d5ce] p-6 text-center">
+                  <p className="text-xs uppercase tracking-[0.2em] text-[#b07e76]">Holder 03</p>
+                  <p className="mt-3 text-sm text-[#7d5b55]">Post-shift moment</p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
