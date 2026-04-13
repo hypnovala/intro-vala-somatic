@@ -261,9 +261,6 @@ export default function Page() {
                       <source src="/video/dreanna_vala_narrator.mp4" type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
-                    <div className="absolute bottom-4 left-4 rounded-full bg-[#543733] px-4 py-2 text-xs uppercase tracking-[0.22em] text-white">
-                      Dreanna - VALA Narrator
-                    </div>
                   </div>
                 ) : (
                   <div className="mt-4 flex aspect-[3/4] w-full items-center justify-center rounded-[22px] bg-[#dbc3ba] text-center">
