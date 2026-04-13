@@ -54,10 +54,8 @@ const previewTags = [
 ];
 
 export default function Page() {
-  const slideCoverPath = path.join(process.cwd(), "public", "slide01-cover.png");
-  const audioSamplePath = path.join(process.cwd(), "public", "mod01-sample.mp3");
-  const hasSlideCover = fs.existsSync(slideCoverPath);
-  const hasAudioSample = fs.existsSync(audioSamplePath);
+  const narratorVideoPath = path.join(process.cwd(), "public", "dreanna-vala-narrator.mp4");
+  const hasNarratorVideo = fs.existsSync(narratorVideoPath);
 
   return (
     <main className="min-h-screen bg-[var(--vala-sand)] text-[var(--vala-ink)]">
@@ -251,43 +249,30 @@ export default function Page() {
           <div className="rounded-[38px] border border-[var(--vala-line)] bg-[#f8ece7] p-5 shadow-sm">
             <div className="rounded-[30px] bg-white/60 p-4">
               <div className="rounded-[26px] border border-dashed border-[#ddb7ae] bg-[#ecd2ca] p-6">
-                <p className="text-xs uppercase tracking-[0.2em] text-[#b07e76]">Image holder</p>
-                {hasSlideCover ? (
+                <p className="text-xs uppercase tracking-[0.2em] text-[#b07e76]">MP4 holder</p>
+                {hasNarratorVideo ? (
                   <div className="relative mt-4 overflow-hidden rounded-[22px] bg-[#dbc3ba]">
-                    <img
-                      src="/slide01-cover.png"
-                      alt="VALA Nightworker slide 01 cover"
-                      className="h-[430px] w-full object-cover"
-                    />
+                    <video
+                      controls
+                      playsInline
+                      preload="metadata"
+                      className="aspect-[3/4] w-full object-cover"
+                    >
+                      <source src="/dreanna-vala-narrator.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
                     <div className="absolute bottom-4 left-4 rounded-full bg-[#543733] px-4 py-2 text-xs uppercase tracking-[0.22em] text-white">
-                      Slide 01 - Cover
+                      Dreanna - VALA Narrator
                     </div>
                   </div>
                 ) : (
-                  <div className="mt-4 flex h-[430px] items-center justify-center rounded-[22px] bg-[#dbc3ba] text-center">
+                  <div className="mt-4 flex aspect-[3/4] w-full items-center justify-center rounded-[22px] bg-[#dbc3ba] text-center">
                     <div>
-                      <p className="text-xs uppercase tracking-[0.24em] text-[#8f6962]">slide01-cover.png</p>
-                      <p className="mt-3 text-sm text-[#7d5b55]">Course preview cover image</p>
+                      <p className="text-xs uppercase tracking-[0.24em] text-[#8f6962]">
+                        Dreanna - VALA Narrator
+                      </p>
+                      <p className="mt-3 text-sm text-[#7d5b55]">3:4 narrator MP4 video holder</p>
                     </div>
-                  </div>
-                )}
-              </div>
-
-              <div className="mt-4 rounded-[22px] border border-dashed border-[#ddb7ae] bg-[#f1d5ce] p-6">
-                <p className="text-xs uppercase tracking-[0.2em] text-[#b07e76]">Audio holder</p>
-                {hasAudioSample ? (
-                  <div className="mt-4 rounded-[18px] bg-white/55 px-5 py-4">
-                    <p className="text-xs uppercase tracking-[0.24em] text-[#8f6962]">mod01-sample.mp3</p>
-                    <p className="mt-3 text-sm text-[#7d5b55]">Module 01 sample audio preview</p>
-                    <audio controls preload="none" className="mt-4 w-full">
-                      <source src="/mod01-sample.mp3" type="audio/mpeg" />
-                      Your browser does not support the audio element.
-                    </audio>
-                  </div>
-                ) : (
-                  <div className="mt-4 rounded-[18px] bg-white/55 px-5 py-4">
-                    <p className="text-xs uppercase tracking-[0.24em] text-[#8f6962]">mod01-sample.mp3</p>
-                    <p className="mt-3 text-sm text-[#7d5b55]">Module 01 sample audio preview</p>
                   </div>
                 )}
               </div>
