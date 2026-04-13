@@ -1,16 +1,11 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 type WaitlistPayload = {
   firstName: string;
   email: string;
   inHouston: boolean;
-};
-
-type SendMailResult = {
-  accepted?: string[];
-  rejected?: string[];
-  response?: string;
+  source?: string;
 };
 
 const isValidPayload = (value: unknown): value is WaitlistPayload => {
@@ -23,7 +18,8 @@ const isValidPayload = (value: unknown): value is WaitlistPayload => {
     payload.firstName.trim().length > 0 &&
     typeof payload.email === "string" &&
     payload.email.trim().length > 0 &&
-    typeof payload.inHouston === "boolean"
+    typeof payload.inHouston === "boolean" &&
+    (typeof payload.source === "undefined" || typeof payload.source === "string")
   );
 };
 
@@ -31,13 +27,47 @@ const isValidEmail = (email: string): boolean => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 };
 
-const wasAccepted = (result: SendMailResult, expectedRecipient: string): boolean => {
-  if (!Array.isArray(result.accepted)) return false;
+const buildConfirmationHtml = (firstName: string) => `
+  <div style="font-family: Georgia, 'Times New Roman', serif; background: #f8efea; color: #311d1b; padding: 32px;">
+    <div style="max-width: 640px; margin: 0 auto; background: #fffaf7; border: 1px solid #ead0c6; border-radius: 24px; padding: 40px;">
+      <p style="margin: 0 0 16px; letter-spacing: 0.18em; text-transform: uppercase; font-size: 12px; color: #9a6d65;">
+        VALA Nightworker
+      </p>
+      <h1 style="margin: 0 0 20px; font-size: 40px; line-height: 1.1; font-weight: 500;">
+        Your shift ended... but your body didn't.
+      </h1>
+      <p style="margin: 0 0 18px; font-size: 18px; line-height: 1.8; color: #5a4744;">
+        You're officially on the early access waitlist for VALA Nightworker, the 35-minute somatic reset designed for women who stay “on” long after work ends.
+      </p>
+      <p style="margin: 0 0 18px; font-size: 18px; line-height: 1.8; color: #5a4744;">
+        You'll be first to hear when early access opens.
+      </p>
+      <p style="margin: 0 0 28px; font-size: 18px; line-height: 1.8; color: #5a4744;">
+        Until then, exhale. Your body is allowed to soften.
+      </p>
+      <p style="margin: 0; font-size: 16px; line-height: 1.8; color: #7a6661;">
+        ${firstName.trim()},
+      </p>
+      <p style="margin: 4px 0 0; font-size: 16px; line-height: 1.8; color: #7a6661;">
+        VALA Nightworker
+      </p>
+    </div>
+  </div>
+`;
 
-  const normalizedRecipient = expectedRecipient.trim().toLowerCase();
-
-  return result.accepted.some((recipient) => recipient.trim().toLowerCase() === normalizedRecipient);
-};
+const buildConfirmationText = (firstName: string) =>
+  [
+    "Your shift ended... but your body didn't.",
+    "",
+    `You're officially on the early access waitlist for VALA Nightworker, ${firstName.trim()}.`,
+    "The 35-minute somatic reset is designed for women who stay “on” long after work ends.",
+    "",
+    "You'll be first to hear when early access opens.",
+    "",
+    "Until then, exhale. Your body is allowed to soften.",
+    "",
+    "VALA Nightworker",
+  ].join("\n");
 
 export async function GET() {
   return NextResponse.json(
@@ -56,57 +86,63 @@ export async function POST(req: Request) {
       return NextResponse.json({ message: "Invalid request body." }, { status: 400 });
     }
 
-    const { firstName, email, inHouston } = body;
+    const { firstName, email, inHouston, source } = body;
 
     if (!isValidEmail(email)) {
       return NextResponse.json({ message: "Please provide a valid email address." }, { status: 400 });
     }
 
-    const gmailUser = process.env.GMAIL_USER;
-    const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
+    const resendApiKey = process.env.RESEND_API_KEY;
+    const resendFromEmail = process.env.RESEND_FROM_EMAIL;
+    const waitlistNotifyEmail =
+      process.env.WAITLIST_NOTIFY_EMAIL ?? process.env.WAITLIST_TEAM_EMAIL;
 
-    if (!gmailUser || !gmailAppPassword) {
+    if (!resendApiKey || !resendFromEmail) {
+      console.error("Resend waitlist configuration is missing.", {
+        hasApiKey: Boolean(resendApiKey),
+        hasFromEmail: Boolean(resendFromEmail),
+      });
+
       return NextResponse.json({ message: "Server email configuration is missing." }, { status: 500 });
     }
 
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: gmailUser,
-        pass: gmailAppPassword,
-      },
+    const resend = new Resend(resendApiKey);
+
+    // Confirmation email is part of the user-facing flow, so we fail loudly if it cannot be sent.
+    const confirmationResult = await resend.emails.send({
+      from: resendFromEmail,
+      to: email,
+      subject: "You're on the waitlist — VALA Nightworker",
+      html: buildConfirmationHtml(firstName),
+      text: buildConfirmationText(firstName),
     });
 
-    const teamNotificationResult = (await transporter.sendMail({
-      from: gmailUser,
-      to: gmailUser,
-      subject: "New VALA Nightworker Waitlist Signup",
-      text: [
-        "New waitlist signup received:",
-        `First name: ${firstName}`,
-        `Email: ${email}`,
-        `In Houston: ${inHouston ? "Yes" : "No"}`,
-      ].join("\n"),
-    })) as SendMailResult;
-
-    if (!wasAccepted(teamNotificationResult, gmailUser)) {
-      console.error("Team notification email was not accepted:", teamNotificationResult);
-      return NextResponse.json({ message: "Unable to send waitlist notification email." }, { status: 500 });
+    if (confirmationResult.error) {
+      console.error("Failed to send waitlist confirmation email.", confirmationResult.error);
+      return NextResponse.json({ message: "Unable to send confirmation email." }, { status: 500 });
     }
 
-    const confirmationResult = (await transporter.sendMail({
-      from: gmailUser,
-      to: email,
-      subject: "You’re on the waitlist — VALA Nightworker Reset",
-      html: `
-        <p>You’re officially on the waitlist, ${firstName}.</p>
-        <p>We’ll reach out when the VALA Nightworker 35-Minute Somatic Reset Course is ready.</p>
-      `,
-    })) as SendMailResult;
+    // Internal notifications are helpful, but they should not block a successful user signup.
+    if (waitlistNotifyEmail && isValidEmail(waitlistNotifyEmail)) {
+      const notifyResult = await resend.emails.send({
+        from: resendFromEmail,
+        to: waitlistNotifyEmail,
+        subject: "New VALA Nightworker Waitlist Signup",
+        text: [
+          "New waitlist signup received:",
+          `First name: ${firstName}`,
+          `Email: ${email}`,
+          `Source: ${source ?? "unknown"}`,
+          `In Houston: ${inHouston ? "Yes" : "No"}`,
+          `Submitted at: ${new Date().toISOString()}`,
+        ].join("\n"),
+      });
 
-    if (!wasAccepted(confirmationResult, email)) {
-      console.error("User confirmation email was not accepted:", confirmationResult);
-      return NextResponse.json({ message: "Unable to send confirmation email." }, { status: 500 });
+      if (notifyResult.error) {
+        console.error("Failed to send internal waitlist notification email.", notifyResult.error);
+      }
+    } else if (waitlistNotifyEmail) {
+      console.warn("WAITLIST_NOTIFY_EMAIL is set but invalid. Skipping internal waitlist notification.");
     }
 
     return NextResponse.json({
