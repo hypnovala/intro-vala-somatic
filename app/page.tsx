@@ -54,8 +54,8 @@ const previewTags = [
 ];
 
 export default function Page() {
-  const slideCoverPath = path.join(process.cwd(), "public", "slide01-cover.png");
-  const audioSamplePath = path.join(process.cwd(), "public", "mod01-sample.mp3");
+  const slideCoverPath = path.join(process.cwd(), "public", "slide01_cover.png");
+  const audioSamplePath = path.join(process.cwd(), "public", "mod01_sample.mp3");
   const hasSlideCover = fs.existsSync(slideCoverPath);
   const hasAudioSample = fs.existsSync(audioSamplePath);
 
@@ -255,7 +255,7 @@ export default function Page() {
                 {hasSlideCover ? (
                   <div className="relative mt-4 overflow-hidden rounded-[22px] bg-[#dbc3ba]">
                     <img
-                      src="/slide01-cover.png"
+                      src="/slide01_cover.png"
                       alt="VALA Nightworker slide 01 cover"
                       className="h-[430px] w-full object-cover"
                     />
@@ -266,7 +266,7 @@ export default function Page() {
                 ) : (
                   <div className="mt-4 flex h-[430px] items-center justify-center rounded-[22px] bg-[#dbc3ba] text-center">
                     <div>
-                      <p className="text-xs uppercase tracking-[0.24em] text-[#8f6962]">slide01-cover.png</p>
+                      <p className="text-xs uppercase tracking-[0.24em] text-[#8f6962]">slide01_cover.png</p>
                       <p className="mt-3 text-sm text-[#7d5b55]">Course preview cover image</p>
                     </div>
                   </div>
@@ -277,16 +277,16 @@ export default function Page() {
                 <p className="text-xs uppercase tracking-[0.2em] text-[#b07e76]">Audio holder</p>
                 {hasAudioSample ? (
                   <div className="mt-4 rounded-[18px] bg-white/55 px-5 py-4">
-                    <p className="text-xs uppercase tracking-[0.24em] text-[#8f6962]">mod01-sample.mp3</p>
+                    <p className="text-xs uppercase tracking-[0.24em] text-[#8f6962]">mod01_sample.mp3</p>
                     <p className="mt-3 text-sm text-[#7d5b55]">Module 01 sample audio preview</p>
                     <audio controls preload="none" className="mt-4 w-full">
-                      <source src="/mod01-sample.mp3" type="audio/mpeg" />
+                      <source src="/mod01_sample.mp3" type="audio/mpeg" />
                       Your browser does not support the audio element.
                     </audio>
                   </div>
                 ) : (
                   <div className="mt-4 rounded-[18px] bg-white/55 px-5 py-4">
-                    <p className="text-xs uppercase tracking-[0.24em] text-[#8f6962]">mod01-sample.mp3</p>
+                    <p className="text-xs uppercase tracking-[0.24em] text-[#8f6962]">mod01_sample.mp3</p>
                     <p className="mt-3 text-sm text-[#7d5b55]">Module 01 sample audio preview</p>
                   </div>
                 )}
