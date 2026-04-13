@@ -134,9 +134,9 @@ export default function Page() {
                 ))}
               </div>
 
-              <div className="mt-6 rounded-[24px] bg-white/70 p-3 ring-1 ring-[#e1c3b8]">
+              <div className="mt-6 rounded-[24px] bg-white/70 p-3 ring-2 ring-[#e1c3b8]">
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#9a6d65]">
-                  Course preview
+                  You are VALA
                 </p>
                 <video
                   autoPlay
