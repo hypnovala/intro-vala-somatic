@@ -45,14 +45,6 @@ const buildConfirmationHtml = (firstName: string) => `
       <p style="margin: 0 0 28px; font-size: 18px; line-height: 1.8; color: #5a4744;">
         Exhale. Soften. Let your body come home to itself.
       </p>
-      <p style="margin: 0 0 28px;">
-        <a
-          href="https://intro-vala-somatic-git-codex-nightworker-pr-hypnovalas-projects.vercel.app/"
-          style="display: inline-block; background: #543733; color: #fffaf7; text-decoration: none; padding: 12px 24px; border-radius: 9999px; letter-spacing: 0.08em; text-transform: uppercase; font-size: 12px;"
-        >
-          Begin Your Reset
-        </a>
-      </p>
       <p style="margin: 0; font-size: 16px; line-height: 1.8; color: #7a6661;">
         ${firstName.trim()},
       </p>
@@ -70,9 +62,6 @@ const buildConfirmationText = (firstName: string) =>
     `${firstName.trim()}, you’re invited to the Free VALA Somatic Course (Nightworker Edition).`,
     "Your shift ended… but your body didn’t.",
     "This 35-minute somatic reset is designed for women who stay “on” long after work ends and supports your body in returning to calm.",
-    "",
-    "Begin Your Reset:",
-    "https://intro-vala-somatic-git-codex-nightworker-pr-hypnovalas-projects.vercel.app/",
     "",
     "Exhale. Soften. Let your body come home to itself.",
     "",
