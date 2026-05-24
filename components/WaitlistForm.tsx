@@ -5,13 +5,19 @@ import { useState } from "react";
 type WaitlistFormProps = {
   buttonLabel?: string;
   compact?: boolean;
+  helperText?: string;
+  introText?: string;
   source?: string;
+  title?: string;
 };
 
 export default function WaitlistForm({
   buttonLabel = "Join the Waitlist",
   compact = false,
+  helperText = "Waitlist only. We’ll email you the paylink when access opens.",
+  introText = "Enter your name and email to join the waitlist. We’ll send the paylink by email when this option opens.",
   source = "hero",
+  title = "Join the access waitlist",
 }: WaitlistFormProps) {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -64,12 +70,8 @@ export default function WaitlistForm({
       className={compact ? "mt-6 grid gap-3" : "mt-8 grid gap-4 rounded-[28px] bg-white/60 p-5 ring-1 ring-[var(--vala-line)]"}
     >
       <div>
-        <p className="text-lg font-semibold text-[var(--vala-deep)]">
-          Sign up early for the free course
-        </p>
-        <p className="mt-1 text-sm text-[var(--vala-muted)]">
-          Enter your name and email to get early access updates for the free VALA Nightworker 35-Minute Somatic Reset Course.
-        </p>
+        <p className="text-lg font-semibold text-[var(--vala-deep)]">{title}</p>
+        <p className="mt-1 text-sm text-[var(--vala-muted)]">{introText}</p>
       </div>
 
       <div className={compact ? "grid gap-3 sm:grid-cols-[0.85fr_1.15fr]" : "grid gap-3 sm:grid-cols-2"}>
@@ -100,9 +102,7 @@ export default function WaitlistForm({
         >
           {status === "loading" ? "Submitting..." : buttonLabel}
         </button>
-        <p className="text-sm text-[var(--vala-muted)]">
-          Early signup only. We’ll email you when the free course opens.
-        </p>
+        <p className="text-sm text-[var(--vala-muted)]">{helperText}</p>
       </div>
 
       {message ? (

@@ -53,6 +53,18 @@ const previewTags = [
   "Creators & models",
 ];
 
+const introOfferExclusions = [
+  "No extended course library",
+  "No ongoing monthly support",
+  "No full access tier inclusions",
+];
+
+const fullAccessFeatures = [
+  "Full access to the 35-minute VALA Nightworker Somatic Reset",
+  "A deeper, more complete nervous system support entry point",
+  "Designed for women who want the full course experience now",
+];
+
 export default function Page() {
   const narratorVideoPath = path.join(process.cwd(), "public", "video", "dreanna_vala_narrator.mp4");
   const hasNarratorVideo = fs.existsSync(narratorVideoPath);
@@ -61,32 +73,36 @@ export default function Page() {
     <main className="min-h-screen bg-[var(--vala-sand)] text-[var(--vala-ink)]">
       <div className="mx-auto max-w-7xl px-6 py-8 sm:px-8 lg:px-10">
         <header className="rounded-[36px] border border-[var(--vala-line)] bg-[var(--vala-cream)] p-3 text-center text-sm tracking-wide text-[var(--vala-mauve)] shadow-sm">
-          Free VALA Nightworker 35-Minute Somatic Reset • Early signup access for women
+          VALA Nightworker 35-Minute Somatic Reset • Paid access for women
         </header>
 
         <section className="grid gap-8 py-10 lg:grid-cols-[1.2fr_0.85fr] lg:items-start">
           <div className="rounded-[40px] bg-[var(--vala-cream)] p-8 shadow-sm ring-1 ring-[var(--vala-line)] sm:p-10">
             <span className="mb-5 inline-flex rounded-full bg-[var(--vala-soft)] px-4 py-2 text-sm font-medium text-[var(--vala-mauve)]">
-              Free early-access course
+              Paid course access
             </span>
 
             <h1 className="max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
-              Sign up early for the free VALA Nightworker 35-Minute Somatic Reset Course.
+              Get access to the VALA Nightworker 35-Minute Somatic Reset Course.
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--vala-body)]">
-              A free luxury somatic experience for nightlife women who want to come down gently after
-              shift, regulate the nervous system, and return home to themselves before sleep.
+              A luxury somatic experience for nightlife women who want to come down gently after shift,
+              regulate the nervous system, and return home to themselves before sleep.
             </p>
 
             <p className="mt-6 max-w-2xl text-base leading-7 text-[var(--vala-body)]">
-              Women who sign up early will get first access, launch updates, and the first invitation
-              when the course opens.
+              Choose the access level that fits you: a $7 intro option or the full $39 course access.
+              All signup on this page is waitlist only, and paylinks will be sent by email.
             </p>
 
-            <WaitlistForm buttonLabel="Join the Waitlist" source="hero" />
-
             <div className="mt-6 flex flex-wrap gap-4">
+              <a
+                href="#pricing"
+                className="rounded-full bg-[var(--vala-burgundy)] px-6 py-3 font-medium text-white transition hover:opacity-90"
+              >
+                Choose access
+              </a>
               <a
                 href="#course"
                 className="rounded-full border border-[var(--vala-mauve)] px-6 py-3 font-medium text-[var(--vala-deep)] transition hover:bg-[#f2e4dc]"
@@ -210,13 +226,13 @@ export default function Page() {
               VALA Somatic Reset - Nightworker Edition
             </p>
             <h3 className="mt-6 max-w-4xl text-4xl font-semibold leading-tight text-[var(--vala-deep)] sm:text-5xl lg:text-6xl">
-              A free nervous system reset for women who stay{" "}
+              A nervous system reset for women who stay{" "}
               <span className="italic text-[var(--vala-burgundy)]">"on"</span> for work
             </h3>
             <p className="mt-6 max-w-3xl text-lg leading-9 text-[var(--vala-body)]">
               If your job requires you to be seen, social, and on, this reset is for you. A
-              free 35-minute luxury somatic experience for nightlife professionals, entertainers,
-              and women who sign up early.
+              35-minute luxury somatic experience for nightlife professionals, entertainers,
+              and women who need a softer way to come down after shift.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -232,10 +248,10 @@ export default function Page() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <a
-                href="#final-waitlist"
+                href="#pricing"
                 className="inline-flex rounded-full bg-[#9f3127] px-7 py-4 font-medium text-white transition hover:opacity-90"
               >
-                Join course waitlist
+                View pricing
               </a>
               <a
                 href="#course"
@@ -313,12 +329,11 @@ export default function Page() {
             </ul>
 
             <div className="mt-8 rounded-[26px] bg-[#f3e4dc] p-6">
-              <p className="text-sm font-medium uppercase tracking-[0.14em] text-[#9a6d65]">
-                Join the waitlist if you want
-              </p>
+              <p className="text-sm font-medium uppercase tracking-[0.14em] text-[#9a6d65]">Access options</p>
               <p className="mt-3 leading-8 text-[#5a4744]">
-                First access to launch details, reminders when enrollment opens, and an early invitation into
-                the VALA Nightworker reset experience.
+                Choose the $7 intro offer for a lighter first step or the $39 option for full access to
+                the VALA Nightworker reset experience. This page only collects waitlist emails, and the
+                paylinks are sent later by email.
               </p>
             </div>
           </div>
@@ -344,19 +359,95 @@ export default function Page() {
           </div>
         </section>
 
-        <section id="final-waitlist" className="mt-12 rounded-[40px] bg-[var(--vala-cream)] p-10 text-center shadow-sm ring-1 ring-[var(--vala-line)]">
+        <section id="pricing" className="mt-12 rounded-[38px] bg-[#f8efea] p-8 shadow-sm ring-1 ring-[#e8d0c5] sm:p-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6d65]">
+            Course access
+          </p>
+          <h3 className="mt-3 text-4xl font-semibold leading-tight">Choose your way into VALA</h3>
+          <p className="mt-4 max-w-3xl leading-8 text-[#5a4744]">
+            This is not just content. These are tools your body can use the same night you need help
+            coming down.
+          </p>
+
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
+            <div className="rounded-[28px] border border-[#e1c3b8] bg-white p-7 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6d65]">Start here</p>
+              <h4 className="mt-3 text-2xl font-semibold text-[#311d1b]">$7 Intro Offer</h4>
+              <p className="mt-3 leading-7 text-[#5a4744]">
+                A lighter first step for women who want to begin with the tone and foundation of the
+                VALA Nightworker reset before moving into the full access tier.
+              </p>
+              <ul className="mt-5 space-y-3 text-[#5a4744]">
+                <li>• Introductory reset access</li>
+                <li>• Gentle entry into the VALA nightworker experience</li>
+                <li>• Soft, low-risk first step</li>
+              </ul>
+              <div className="mt-5 rounded-[22px] bg-[#f8efea] p-4">
+                <p className="text-sm font-semibold text-[#442c29]">Not included</p>
+                <ul className="mt-3 space-y-2 text-sm text-[#735b57]">
+                  {introOfferExclusions.map((item) => (
+                    <li key={item}>• {item}</li>
+                  ))}
+                </ul>
+              </div>
+              <WaitlistForm
+                buttonLabel="Join $7 Waitlist"
+                compact
+                helperText="Waitlist only. We’ll email the $7 paylink when this option opens."
+                introText="Enter your name and email to join the $7 intro waitlist. The paylink will be sent by email, not shown on this page."
+                source="pricing-7"
+                title="$7 intro waitlist"
+              />
+            </div>
+
+            <div className="rounded-[28px] border border-[#d9b7ab] bg-[#f5e5de] p-7 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6d65]">Full access</p>
+              <h4 className="mt-3 text-2xl font-semibold text-[#311d1b]">$39 Access</h4>
+              <p className="mt-3 leading-7 text-[#5a4744]">
+                The fuller VALA access point for women who want the complete course experience and a deeper
+                nervous system support rhythm from the start.
+              </p>
+              <ul className="mt-5 space-y-3 text-[#5a4744]">
+                {fullAccessFeatures.map((item) => (
+                  <li key={item}>• {item}</li>
+                ))}
+              </ul>
+              <WaitlistForm
+                buttonLabel="Join $39 Waitlist"
+                compact
+                helperText="Waitlist only. We’ll email the $39 paylink when full access opens."
+                introText="Enter your name and email to join the $39 full-access waitlist. The paylink will be sent by email, not shown on this page."
+                source="pricing-39"
+                title="$39 full-access waitlist"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section id="final-access" className="mt-12 rounded-[40px] bg-[var(--vala-cream)] p-10 text-center shadow-sm ring-1 ring-[var(--vala-line)]">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--vala-mauve)]">
-            Waitlist invitation
+            Final access
           </p>
           <h3 className="mx-auto mt-4 max-w-4xl text-4xl font-semibold leading-tight sm:text-5xl">
-            Enter your name and email to claim early access to the free 35-minute VALA Nightworker reset.
+            Choose the access level that fits the way you want to enter the VALA Nightworker reset.
           </h3>
           <p className="mx-auto mt-6 max-w-3xl leading-8 text-[var(--vala-body)]">
-            This page is focused entirely on early signup so women on the waitlist hear first when the
-            free course is released.
+            Start with the $7 intro offer or choose the $39 full access option for the more complete
+            course experience. Both options are waitlist-only here, and paylinks are sent by email.
           </p>
-          <div className="mx-auto mt-8 max-w-3xl text-left">
-            <WaitlistForm buttonLabel="Join the Waitlist" source="final-cta" />
+          <div className="mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-4">
+            <a
+              href="#pricing"
+              className="inline-flex rounded-full bg-[var(--vala-burgundy)] px-7 py-4 font-medium text-white transition hover:opacity-90"
+            >
+              Choose $7 access
+            </a>
+            <a
+              href="#pricing"
+              className="inline-flex rounded-full border border-[var(--vala-mauve)] px-7 py-4 font-medium text-[var(--vala-deep)] transition hover:bg-[#f2e4dc]"
+            >
+              Choose $39 access
+            </a>
           </div>
           <p className="mt-6 text-sm text-[var(--vala-muted)]">
             VALA Nightworker 35-Minute Somatic Reset Course • Houston, Texas • Educational wellness experience
