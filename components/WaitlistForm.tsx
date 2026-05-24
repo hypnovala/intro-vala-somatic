@@ -5,6 +5,7 @@ import { useState } from "react";
 type WaitlistFormProps = {
   buttonLabel?: string;
   compact?: boolean;
+  formId?: string;
   helperText?: string;
   introText?: string;
   source?: string;
@@ -14,6 +15,7 @@ type WaitlistFormProps = {
 export default function WaitlistForm({
   buttonLabel = "Join the Waitlist",
   compact = false,
+  formId,
   helperText = "Waitlist only. We’ll email you the paylink when access opens.",
   introText = "Enter your name and email to join the waitlist. We’ll send the paylink by email when this option opens.",
   source = "hero",
@@ -66,6 +68,7 @@ export default function WaitlistForm({
 
   return (
     <form
+      id={formId}
       onSubmit={handleSubmit}
       className={compact ? "mt-6 grid gap-3" : "mt-8 grid gap-4 rounded-[28px] bg-white/60 p-5 ring-1 ring-[var(--vala-line)]"}
     >

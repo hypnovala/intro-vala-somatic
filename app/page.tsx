@@ -46,6 +46,44 @@ const resetSteps = [
   "Close the night with a repeatable ritual your body can trust.",
 ];
 
+const courseModules = [
+  {
+    title: "Module 1 — Arrival & Body Check-In",
+    body:
+      "A soft opening that helps you notice where your body is still holding the night before trying to change anything.",
+  },
+  {
+    title: "Module 2 — Performance Mode Awareness",
+    body:
+      "Understand why your system may still feel on after smiling, serving, dancing, hosting, or being seen all shift.",
+  },
+  {
+    title: "Module 3 — Breath & Sensory Downshift",
+    body:
+      "A simple breathing and awareness practice to help your body begin moving from alertness into calm.",
+  },
+  {
+    title: "Module 4 — Jaw, Chest & Shoulder Release",
+    body:
+      "A guided release for the places that often hold pressure, attention, tension, and emotional labor after work.",
+  },
+  {
+    title: "Module 5 — Grounding Back Into Safety",
+    body:
+      "A body-led reset that helps you feel steady, supported, and more present before sleep.",
+  },
+  {
+    title: "Module 6 — Soft Feminine Reconnection",
+    body:
+      "A gentle practice for returning to softness, self-worth, and connection with your body after performance mode.",
+  },
+  {
+    title: "Module 7 — Closing Night Ritual",
+    body:
+      "A repeatable end-of-night ritual your body can learn to trust after late shifts.",
+  },
+];
+
 const previewTags = [
   "Bottle girls & cocktail servers",
   "Entertainers & performers",
@@ -71,6 +109,26 @@ export default function Page() {
 
   return (
     <main className="min-h-screen bg-[var(--vala-sand)] text-[var(--vala-ink)]">
+      <nav className="sticky top-0 z-50 border-b border-[var(--vala-line)] bg-[var(--vala-cream)]/90 backdrop-blur-md">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-8 lg:px-10">
+          <a href="#" className="text-xl font-semibold tracking-[0.06em] text-[var(--vala-deep)]">
+            VALA <span className="font-light text-[var(--vala-mauve)]">Somatic</span>
+          </a>
+          <div className="hidden items-center gap-8 text-sm font-medium tracking-wide text-[var(--vala-body)] md:flex">
+            <a href="#course" className="transition hover:text-[var(--vala-deep)]">The Course</a>
+            <a href="#membership" className="transition hover:text-[var(--vala-deep)]">Membership</a>
+            <a href="#pricing" className="transition hover:text-[var(--vala-deep)]">Access</a>
+            <a href="https://valabody.com/free-reset-guide" className="rounded-full border border-[var(--vala-mauve)] px-4 py-1.5 text-[var(--vala-deep)] transition hover:bg-[#f2e4dc]" rel="noopener noreferrer" target="_blank">Free Guide</a>
+          </div>
+          <a
+            href="#pricing"
+            className="rounded-full bg-[var(--vala-burgundy)] px-5 py-2.5 text-sm font-medium text-white transition hover:opacity-90"
+          >
+            Join Waitlist
+          </a>
+        </div>
+      </nav>
+
       <div className="mx-auto max-w-7xl px-6 py-8 sm:px-8 lg:px-10">
         <header className="rounded-[36px] border border-[var(--vala-line)] bg-[var(--vala-cream)] p-3 text-center text-sm tracking-wide text-[var(--vala-mauve)] shadow-sm">
           VALA Nightworker 35-Minute Somatic Reset • Paid access for women
@@ -359,6 +417,151 @@ export default function Page() {
           </div>
         </section>
 
+        <section className="mt-8 rounded-[38px] bg-[var(--vala-cream)] p-8 shadow-sm ring-1 ring-[var(--vala-line)] sm:p-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--vala-mauve)]">
+            What You’ll Move Through
+          </p>
+          <h3 className="mt-3 max-w-4xl text-3xl font-semibold leading-tight sm:text-4xl">
+            Seven short modules designed to help your body come down gently after the night.
+          </h3>
+          <p className="mt-4 text-sm leading-7 text-[var(--vala-muted)]">
+            Led by Dreanna and Brock VALA.
+          </p>
+
+          <div className="mt-8 grid gap-4">
+            {courseModules.map((module, i) => (
+              <div
+                key={module.title}
+                className="flex items-center gap-5 rounded-[28px] bg-[#f5e5de] p-6 shadow-sm ring-1 ring-[#e1c3b8] sm:p-7"
+              >
+                <div className="aspect-square w-20 shrink-0 overflow-hidden rounded-[16px] bg-[#dbc3ba] sm:w-24">
+                  <img
+                    alt={`Module ${i + 1}`}
+                    className="h-full w-full object-cover"
+                    src={`/images/${i + 1}_image_mod.png`}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold text-[var(--vala-deep)] sm:text-2xl">
+                    {module.title}
+                  </h4>
+                  <p className="mt-3 max-w-4xl leading-7 text-[#5a4744]">{module.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 rounded-[28px] bg-[#f8efea] p-6 ring-1 ring-[#e8d0c5]">
+            <p className="text-base leading-7 text-[#5a4744]">
+              Join the waitlist and experience the reset your body can use after shift.
+            </p>
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#waitlist-7"
+                className="inline-flex justify-center rounded-full bg-[var(--vala-burgundy)] px-6 py-3 font-medium text-white transition hover:opacity-90"
+              >
+                Join $7 Waitlist
+              </a>
+              <a
+                href="#waitlist-39"
+                className="inline-flex justify-center rounded-full border border-[var(--vala-mauve)] px-6 py-3 font-medium text-[var(--vala-deep)] transition hover:bg-[#f2e4dc]"
+              >
+                Join $39 Waitlist
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section id="membership" className="mt-12 rounded-[38px] bg-[var(--vala-cream)] p-8 shadow-sm ring-1 ring-[var(--vala-line)] sm:p-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--vala-mauve)]">
+            VALA Somatic Membership
+          </p>
+          <div className="mt-3 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h3 className="max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl">
+                Everything included at $39<span className="text-2xl font-normal text-[var(--vala-body)]">/mo</span>
+              </h3>
+              <p className="mt-3 text-lg text-[var(--vala-body)]">Full access — every benefit, every month.</p>
+            </div>
+            <div className="rounded-[22px] bg-[var(--vala-burgundy)] px-6 py-4 text-center text-white">
+              <p className="text-2xl font-semibold">$39 <span className="text-base font-normal opacity-80">/ month</span></p>
+              <p className="mt-1 text-sm tracking-wide opacity-70">Core membership</p>
+            </div>
+          </div>
+
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                title: "Guided somatic resets",
+                body: "Audio + video practices for nervous system regulation, body awareness, and emotional fatigue.",
+              },
+              {
+                title: "Brock VALA somatic check-in app",
+                body: "Daily nervous system check-ins, grounding prompts, and somatic reset suggestions.",
+              },
+              {
+                title: "Private VALA community",
+                body: "Premium-access space for ongoing support, early releases, and connection with women on the same path.",
+              },
+              {
+                title: "Valadation Method™ access",
+                body: "The full identity framework — Valuable, Accepted, Loved, Approved — as embodied practice.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="rounded-[24px] bg-[#f5e5de] p-6 ring-1 ring-[#e1c3b8]">
+                <h4 className="text-lg font-semibold text-[var(--vala-deep)]">{item.title}</h4>
+                <p className="mt-3 leading-7 text-[#5a4744]">{item.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8">
+            <p className="mb-5 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--vala-mauve)]">
+              New additions <span className="text-base">✦</span>
+            </p>
+            <div className="grid gap-5 md:grid-cols-3">
+              <div className="relative overflow-hidden rounded-[24px] bg-[var(--vala-burgundy)] p-6 text-white ring-2 ring-[#c9574a]">
+                <div className="absolute left-0 top-0 w-full bg-[#c9574a]/60 px-5 py-2 text-center text-[10px] font-bold uppercase tracking-[0.22em] text-white/90">
+                  Limited time — included at $39/mo
+                </div>
+                <div className="mt-5 flex items-start justify-between gap-3">
+                  <h4 className="text-lg font-semibold leading-tight">1-on-1 weekly private coaching</h4>
+                  <span className="shrink-0 rounded-full bg-white/20 px-3 py-1 text-xs font-semibold tracking-wide">New</span>
+                </div>
+                <p className="mt-4 leading-7 text-[#f5ddd8]">
+                  A private weekly call with Brock VALA — personalized somatic support, nervous system guidance, and identity coaching tailored to your specific life and stress patterns.
+                </p>
+                <div className="mt-5 flex items-center justify-between">
+                  <span className="rounded-full bg-white/15 px-4 py-2 text-sm font-semibold tracking-wide">$200 value</span>
+                  <span className="text-xs text-white/60">Normally $200 / session</span>
+                </div>
+              </div>
+
+              <div className="relative rounded-[24px] bg-[#f5e5de] p-6 ring-1 ring-[#e1c3b8]">
+                <div className="flex items-start justify-between gap-3">
+                  <h4 className="text-lg font-semibold leading-tight text-[var(--vala-deep)]">Personalized workbook app</h4>
+                  <span className="shrink-0 rounded-full bg-[var(--vala-burgundy)]/10 px-3 py-1 text-xs font-semibold tracking-wide text-[var(--vala-burgundy)]">New</span>
+                </div>
+                <p className="mt-4 leading-7 text-[#5a4744]">
+                  Your own guided digital workbook — tracks your Valadation Method™ progress, somatic journal entries, and regulation milestones.
+                </p>
+                <span className="absolute bottom-5 right-5 rounded-full bg-[#eaded7] px-3 py-1 text-xs font-semibold text-[#7a544e]">$29 value</span>
+              </div>
+
+              <div className="relative rounded-[24px] bg-[#f5e5de] p-6 ring-1 ring-[#e1c3b8]">
+                <div className="flex items-start justify-between gap-3">
+                  <h4 className="text-lg font-semibold leading-tight text-[var(--vala-deep)]">Full VALA resource links</h4>
+                  <span className="shrink-0 rounded-full bg-[var(--vala-burgundy)]/10 px-3 py-1 text-xs font-semibold tracking-wide text-[var(--vala-burgundy)]">New</span>
+                </div>
+                <p className="mt-4 leading-7 text-[#5a4744]">
+                  Curated access to all VALA learning resources — courses, somatic guides, reset tools, and Brock's full reference library in one place.
+                </p>
+                <span className="absolute bottom-5 right-5 rounded-full bg-[#eaded7] px-3 py-1 text-xs font-semibold text-[#7a544e]">$49 value</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="pricing" className="mt-12 rounded-[38px] bg-[#f8efea] p-8 shadow-sm ring-1 ring-[#e8d0c5] sm:p-10">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6d65]">
             Course access
@@ -393,6 +596,7 @@ export default function Page() {
               <WaitlistForm
                 buttonLabel="Join $7 Waitlist"
                 compact
+                formId="waitlist-7"
                 helperText="Waitlist only. We’ll email the $7 paylink when this option opens."
                 introText="Enter your name and email to join the $7 intro waitlist. The paylink will be sent by email, not shown on this page."
                 source="pricing-7"
@@ -415,6 +619,7 @@ export default function Page() {
               <WaitlistForm
                 buttonLabel="Join $39 Waitlist"
                 compact
+                formId="waitlist-39"
                 helperText="Waitlist only. We’ll email the $39 paylink when full access opens."
                 introText="Enter your name and email to join the $39 full-access waitlist. The paylink will be sent by email, not shown on this page."
                 source="pricing-39"
@@ -453,6 +658,16 @@ export default function Page() {
             VALA Nightworker 35-Minute Somatic Reset Course • Houston, Texas • Educational wellness experience
           </p>
         </section>
+
+        <footer className="pb-8 pt-6 text-center text-sm text-[var(--vala-muted)]">
+          Contact Brock VALA at{" "}
+          <a
+            href="mailto:valadreammodel@gmail.com"
+            className="text-[var(--vala-deep)] underline decoration-[var(--vala-line)] underline-offset-4 transition hover:text-[var(--vala-burgundy)]"
+          >
+            valadreammodel@gmail.com
+          </a>
+        </footer>
       </div>
     </main>
   );
